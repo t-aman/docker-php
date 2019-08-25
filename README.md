@@ -1,6 +1,6 @@
 # 概要
 
-#### Dockerイメージ（apache 2.4 - php 7.3）
+#### Dockerイメージ（apache 2.4 + php 7.3 + SSL）
 
     PHP7.3が動作するDockerfileです。
 
@@ -18,13 +18,15 @@
         $ docker build -t php d:/work/docker-php/
     
     - 2.コンテナ起動
-        $ docker run -d -p 80:80 --name www php
+        $ docker run -d -p 80:80 -p 443:443 --name www php
 
         補足）ホスト側ファイルを利用する場合　※≪その他≫参照
-        $ docker run -d -p 80:80 -v //d/docker-php:/var/www/html/ --name www php
+        $ docker run -d -p 80:80 -p 443:443 -v //d/docker-php:/var/www/html/ --name www php
 
     - 3.動作確認
-        ブラウザから接続　http://192.168.99.100/
+        ブラウザから接続
+            ・http://192.168.99.100/
+            ・https://192.168.99.100/   ※警告がでます
         
         補足）サーバのIPアドレスはDockerで確認
         $ docker-machine ip
@@ -34,13 +36,15 @@
 
 #### 公開イメージから起動する場合
     - 1.コンテナ起動
-        $ docker run -d -p 80:80 --name www nasca/php
+        $ docker run -d -p 80:80 -p 443:443 --name www nasca/php
 
         補足）ホスト側ファイルを利用する場合　※≪その他≫参照
-        $ docker run -d -p 80:80 -v //d/docker-php:/var/www/html/ --name www nasca/php
+        $ docker run -d -p 80:80 -p 443:443 -v //d/docker-php:/var/www/html/ --name www nasca/php
 
     - 2.動作確認
-        ブラウザから接続　http://192.168.99.100/
+        ブラウザから接続
+            ・http://192.168.99.100/
+            ・https://192.168.99.100/   ※警告がでます
         
         補足）サーバのIPアドレスはDockerで確認
         $ docker-machine ip

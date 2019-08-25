@@ -1,11 +1,16 @@
 # ベース
 FROM php:7.3.8-apache-stretch
 
-# 環境変数
-ENV WWWROOT="/var/www/html/"
+# SSL適用
+RUN apt-get update \
+    && apt-get install -y libssl-dev openssl ssl-cert \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* \
+    && a2enmod ssl \
+    && a2ensite default-ssl
 
 # ポート
-EXPOSE 80
+EXPOSE 80 443
 
 # セットアップ
-COPY ./ $WWWROOT
+COPY ./ /var/www/html/
