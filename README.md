@@ -60,11 +60,11 @@
 
 #### 共有フォルダの作成方法
 
-    仮想マシンの設定で共有フォルダの設定
+    1. 仮想マシンの設定で共有フォルダの設定
     | ホストOS | ゲストOS定義 | 
     | D:\WORK | D_DRIVE |
 
-    Dockerで設定
+    2. Dockerで設定
     $ docker-machine ssh default 'sudo mkdir -p /d'
     $ docker-machine ssh default 'sudo mount -t vboxsf -o uid=0,gid=0 D_DRIVE /d'
 
