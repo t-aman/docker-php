@@ -33,6 +33,20 @@
         $ docker rm -f www
 
 #### 公開イメージから起動する場合
+    - 1.コンテナ起動
+        $ docker run -d -p 80:80 --name www nasca/php
+
+        補足）ホスト側ファイルを利用する場合　※≪その他≫参照
+        $ docker run -d -p 80:80 -v //d/docker-php:/var/www/html/ --name www nasca/php
+
+    - 2.動作確認
+        ブラウザから接続　http://192.168.99.100/
+        
+        補足）サーバのIPアドレスはDockerで確認
+        $ docker-machine ip
+
+    - 3.コンテナ停止
+        $ docker rm -f www
 
 
 # その他
