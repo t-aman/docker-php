@@ -2,7 +2,7 @@
 
 #### Dockerイメージ（apache 2.4 + php 7.3 + SSL）
 
-    PHP7.3が動作するDockerfileです。
+    PHP7.3(日本語環境)が動作するDockerfileです。
 
 #### 動作環境
 
