@@ -15,7 +15,7 @@
         $ docker build -t php 【Dockerfileのパス】
         
         例）
-        $ docker build -t php d:/git/docker/docker-php/
+        $ docker build -t php d:/work/docker-php/
     
     - 2.コンテナ起動
         $ docker run -d -p 80:80 --name www php
